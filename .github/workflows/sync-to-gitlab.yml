@@ -1,0 +1,31 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 2 * * *" # Optional: Runs daily at 2 AM UTC
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add GitLab as remote
+        run: |
+          git remote add gitlab "${{ secrets.GITLAB_URL }}/${{ secrets.GITLAB_NAMESPACE }}/$GITHUB_REPOSITORY.git"
+
+      - name: Push to GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git push --mirror "https://oauth2:${GITLAB_TOKEN}@${{ secrets.GITLAB_URL }}/${{ secrets.GITLAB_NAMESPACE }}/$GITHUB_REPOSITORY.git"
