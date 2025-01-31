@@ -106,5 +106,11 @@ jobs:
           git fetch gitlab || true
           
           echo "Pushing to GitLab..."
-          # Push all refs without '--mirror' to avoid hidden ref issues
-          git push -f gitlab refs/remotes/origin/*:refs/heads/* refs/tags/*:refs/tags/*
+          # Push all branches except HEAD ref
+          for branch in $(git branch -r | grep 'origin/' | grep -v 'origin/HEAD'); do
+              branch_name=${branch#origin/}
+              git push -f gitlab "$branch:refs/heads/$branch_name"
+          done
+          
+          # Push all tags
+          git push -f gitlab refs/tags/*:refs/tags/*
