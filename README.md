@@ -496,3 +496,14 @@ ls -l | wc -l > output.txt | ls > output2.txt
 ## Acknowledgements
 
 Thanks to [reda ghouzraf](https://github.com/rghouzra), [MTRX](https://github.com/whoismtrx), [Nasreddine hanafi](https://github.com/Nx21), [Khalid zerri](https://github.com/zerrikhalid) for their help and support during the project.
+
+
+## Star History
+
+<a href="https://www.star-history.com/#yeongpin/cursor-free-vip&zelhajou/ft_unix_minishell&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=yeongpin/cursor-free-vip,zelhajou/ft_unix_minishell&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=yeongpin/cursor-free-vip,zelhajou/ft_unix_minishell&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=yeongpin/cursor-free-vip,zelhajou/ft_unix_minishell&type=date&legend=top-left" />
+ </picture>
+</a>
